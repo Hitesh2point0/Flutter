@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:io' show Platform;
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+        return MaterialApp(
+          theme: ThemeData(
+            brightness: Brightness.light
+          ),
+    
+        home: Scaffold(
+          body: GridView.count(
+            crossAxisCount: 2,
+            children: _cards(),
+          ),
+        ),
+    );
+  }
+
+  List<Widget> _cards(){
+    return [1,2,3,4,5,6,7,8,9].map(
+      (v) => Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(20),
+        width: 100,
+        child: Text('$v'),
+      ),
+    ).toList();
+  }
+}
+

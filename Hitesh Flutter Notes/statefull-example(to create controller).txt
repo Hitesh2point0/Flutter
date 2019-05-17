@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:io' show Platform;
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  ScrollController _controller = ScrollController();
+
+  @override
+  Widget build(BuildContext context) {
+        return MaterialApp(
+          theme: ThemeData(
+            brightness: Brightness.light
+          ),
+    
+        home: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => _controller.animateTo(1000,
+              curve: Curves.bounceIn, duration: Duration( seconds: 2 )
+            ),
+          ),
+          body: ListView.builder(
+            controller: _controller,
+            itemBuilder: (context, idx){
+            return Container(
+              color: Colors.blue,
+              margin: EdgeInsets.all(20),
+              height: 100,
+              child: Text('$idx'),
+            );
+          }),
+        ),
+    );
+  }
+}

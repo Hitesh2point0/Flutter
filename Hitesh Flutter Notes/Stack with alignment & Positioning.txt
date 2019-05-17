@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:io' show Platform;
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+        return MaterialApp(
+          theme: ThemeData(
+            brightness: Brightness.light
+          ),
+    
+        home: Scaffold(
+          body: SizedBox.expand(
+            child: Stack(
+              children: <Widget>[
+                // here you see in below three lines they are stacked
+                Icon(Icons.camera, size:100, color: Colors.red),
+                Icon(Icons.wifi_tethering, size:100, color: Colors.green),
+                Icon(Icons.access_time, size:100, color: Colors.blue),
+                Align(
+                  alignment: Alignment.center,
+                  child: Icon(Icons.camera, size:100, color: Colors.cyanAccent),
+                ),
+                Positioned(
+                  bottom:0,
+                  child: Icon(Icons.camera, size:100, color: Colors.deepOrangeAccent),
+                ),
+              ],
+            ),
+          ),
+        ),
+    );
+  }
+}
